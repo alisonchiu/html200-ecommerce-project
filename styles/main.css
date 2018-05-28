@@ -16,8 +16,41 @@ img {
 
 /***************** NAV *****************/
 
-nav a:hover {
-  text-decoration: underline;
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Large */
+.navigation {
+  list-style: none;
+  margin: 0;
+
+  background: deepskyblue;
+
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: space-around;
+
+  padding: 1rem;
+}
+
+/* Medium screens */
+@media all and (max-width: 110px) {
+  .navigation {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 600px) {
+  .navigation {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /**************** HERO *****************/
@@ -28,6 +61,10 @@ header img {
 
 h1 .logo-w {
   font-size: 3.5rem;
+}
+
+h1 {
+  display: inline-flex;
 }
 
 /**************** ASIDE ****************/
@@ -41,10 +78,34 @@ input[type="submit"] {
   color: white;
 }
 
+aside {
+  display: inline-flex;
+}
+
+@media all and (min-width: 600px) {
+  aside {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 1100px) {
+  aside { 
+    width: 25%;
+  } 
+}
+
+
 /*********** PRODUCTS SECTION ***********/
+
+.item-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
 
 section {
   padding: 0 .75rem;
+  width: 100%;
 }
 
 h2 {
@@ -58,4 +119,27 @@ h3 {
   font-size: 1.2rem;
   text-align: center;
   color: #2d2d2d;
+}
+
+.item {
+  flex-grow: 0 1 auto;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.item img {
+  display: block;
+  margin: 0 auto;
+}
+
+@media all and (min-width: 600px) {
+  .item { 
+    width: 50% 
+  }
+}
+
+@media all and (min-width: 1100px) {
+  .item { 
+    width: 33%; 
+  } 
 }
